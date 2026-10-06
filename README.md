@@ -17,4 +17,4 @@
 * **Ограничение:** Не имеет доступа к изменению списка сотрудников и их окладов.
 
 ## Диаграмма функций сотрудников (Use Case)
-![Use Case Diagram](out/usecase/FinanceTrack Use Case Diagram.png)
+![Use Case Diagram](out/usecase/usecase.png)
