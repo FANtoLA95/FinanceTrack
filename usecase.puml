@@ -1,0 +1,49 @@
+@startuml FinanceTrack Use Case Diagram
+
+left to right direction
+skinparam packageStyle rectangle
+
+' Определение ролей
+actor "Руководитель" as Admin
+actor "Бухгалтер" as Accountant
+
+' Руководитель наследует все права Бухгалтера
+Admin --|> Accountant
+
+rectangle "Система FinanceTrack" {
+    ' Главные прецеденты (овалы первого уровня)
+    usecase "Авторизоваться в\nсистеме" as UC_Auth
+    usecase "Меню транзакций" as UC_Transactions
+    usecase "Меню справочников\nи счетов" as UC_Catalogs
+    usecase "Сформировать\nсводный отчёт" as UC_Report
+    usecase "Управлять\nпользователями" as UC_Users
+
+    ' Подпункты для Меню транзакций
+    usecase "Просмотреть\nисторию операций" as UC_History
+    usecase "Вносить любые\nдоходы/расходы" as UC_AddFinance
+
+    ' Подпункты для Меню справочников и счетов
+    usecase "Создать внутренний\nсчет" as UC_CreateAccount
+    usecase "Добавить новую\nкатегорию" as UC_AddCategory
+    usecase "Просмотреть баланс\nсчетов" as UC_ViewBalance
+}
+
+' Связи для Бухгалтера (базовые действия)
+Accountant -- UC_Auth
+Accountant -- UC_Transactions
+Accountant -- UC_Catalogs
+
+' Связи от Меню транзакций к подпунктам
+UC_Transactions --> UC_History
+UC_Transactions --> UC_AddFinance
+
+' Связи от Меню справочников к подпунктам
+UC_Catalogs --> UC_CreateAccount
+UC_Catalogs --> UC_AddCategory
+UC_Catalogs --> UC_ViewBalance
+
+' Уникальные связи для Руководителя
+Admin --> UC_Report
+Admin --> UC_Users
+
+@endum
