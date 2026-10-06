@@ -18,3 +18,6 @@
 
 ## Диаграмма функций сотрудников (Use Case)
 ![Use Case Diagram](out/usecase/usecase.png)
+## Принцип некоторых функций
+![worker](out/worker/worker.png)
+![ceo](out/ceo/ceo.png)
