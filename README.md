@@ -17,7 +17,7 @@
 * **Ограничение:** Не имеет доступа к изменению списка сотрудников и их окладов.
 
 ## Диаграмма функций сотрудников (Use Case)
-![Use Case Diagram](files/usecase.png)
+![Use Case Diagram](doc/usecase.png)
 ## Принцип некоторых функций
-![worker](files/worker.png)
-![ceo](files/ceo.png)
+![worker](doc/worker.png)
+![ceo](doc/ceo.png)
