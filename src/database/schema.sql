@@ -55,6 +55,6 @@ INSERT INTO categories (name) VALUES
 ('Аренда офиса'),
 ('Поступление от клиентов');
 
-INSERT INTO transactions (amount, type, account_id, category_id) VALUES 
+INSERT INTO transactions (amount, type, accountID, categoryID) VALUES 
 (120000.0, 'доход', 1, 3),
 (45000.0, 'расход', 1, 2);
