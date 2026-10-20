@@ -18,6 +18,10 @@
 
 ## Диаграмма функций сотрудников (Use Case)
 ![Use Case Diagram](doc/usecase.png)
+
 ## Принцип некоторых функций
 ![worker](doc/worker.png)
 ![ceo](doc/ceo.png)
+
+## ER диаграмма системы
+![erd](doc/erd.png)
