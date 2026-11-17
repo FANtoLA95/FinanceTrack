@@ -1,22 +1,28 @@
-import sqlite3
 import os
+import sqlite3
+from ui.menu import auth_menu, main_menu
 
-def init_db():
+def ensure_db_initialized():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     db_path = os.path.join(current_dir, 'database', 'finance.db')
     schema_path = os.path.join(current_dir, 'database', 'schema.sql')
-    os.makedirs(os.path.dirname(db_path), exist_ok=True)
-    print("Инициализация базы данных FinanceTrack...")
-    try:
+
+    if not os.path.exists(db_path):
+        os.makedirs(os.path.dirname(db_path), exist_ok=True)
         conn = sqlite3.connect(db_path)
-        cursor = conn.cursor()
         with open(schema_path, 'r', encoding='utf-8') as f:
-            sql_script = f.read()
-        cursor.executescript(sql_script)
+            conn.executescript(f.read())
         conn.commit()
         conn.close()
-        print(f"Файл базы данных успешно создан: {db_path}")
-    except Exception as e:
-        print(f"Ошибка при инициализации базы данных: {e}")
+
+def run():
+    ensure_db_initialized()
+    while True:
+        user = auth_menu()
+        if user is None:
+            print("Работа приложения завершена.")
+            break
+        main_menu(user)
+
 if __name__ == "__main__":
-    init_db()
+    run()
