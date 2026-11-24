@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transactions>
+    <transaction>
+        <transactionID>1</transactionID>
+        <amount>120000.0</amount>
+        <type>доход</type>
+        <createdAt>2026-10-20 23:17:12</createdAt>
+        <account>
+            <accountID>1</accountID>
+            <name>Основной расчетный счет</name>
+            <balance>500000.0</balance>
+        </account>
+        <category>
+            <categoryID>3</categoryID>
+            <name>Поступление от клиентов</name>
+        </category>
+    </transaction>
+    <transaction>
+        <transactionID>2</transactionID>
+        <amount>45000.0</amount>
+        <type>расход</type>
+        <createdAt>2026-10-20 23:17:12</createdAt>
+        <account>
+            <accountID>1</accountID>
+            <name>Основной расчетный счет</name>
+            <balance>500000.0</balance>
+        </account>
+        <category>
+            <categoryID>2</categoryID>
+            <name>Аренда офиса</name>
+        </category>
+    </transaction>
+</transactions>

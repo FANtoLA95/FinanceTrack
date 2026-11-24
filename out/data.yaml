@@ -1,0 +1,22 @@
+- transactionID: 1
+  amount: 120000.0
+  type: доход
+  createdAt: '2026-10-20 23:17:12'
+  account:
+    accountID: 1
+    name: Основной расчетный счет
+    balance: 500000.0
+  category:
+    categoryID: 3
+    name: Поступление от клиентов
+- transactionID: 2
+  amount: 45000.0
+  type: расход
+  createdAt: '2026-10-20 23:17:12'
+  account:
+    accountID: 1
+    name: Основной расчетный счет
+    balance: 500000.0
+  category:
+    categoryID: 2
+    name: Аренда офиса

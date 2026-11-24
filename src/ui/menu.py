@@ -1,6 +1,7 @@
 from services import user_service, catalog_service, transaction_service
 from repositories import role_repository
 from models.user import User
+from services import user_service, catalog_service, transaction_service, export_service
 
 def auth_menu() -> User | None:
     while True:
@@ -43,11 +44,12 @@ def main_menu(current_user: User):
         print(f"\n--- ГЛАВНОЕ МЕНЮ ({current_user.login} | {current_user.role_name}) ---")
         print("1. Меню транзакций (доходы/расходы и история)")
         print("2. Меню справочников и счетов")
-        
+
         if current_user.role_name == "Руководитель":
             print("3. Сформировать сводный отчёт")
             print("4. Управлять пользователями (персоналом)")
-            
+
+        print("5. Экспорт транзакций (JSON, CSV, XML, YAML)")
         print("0. Выйти из аккаунта")
         choice = input("Выберите раздел: ").strip()
 
@@ -59,6 +61,12 @@ def main_menu(current_user: User):
             show_report(current_user)
         elif choice == "4" and current_user.role_name == "Руководитель":
             users_menu(current_user)
+        elif choice == "5":
+            try:
+                out_path = export_service.export_all_formats()
+                print(f"\n[Успех]: Файлы data.json, data.csv, data.xml и data.yaml созданы в папке:\n{out_path}")
+            except Exception as e:
+                print(f"\n[Ошибка экспорта]: {e}")
         elif choice == "0":
             print("Выход из аккаунта...")
             break
